@@ -24,7 +24,13 @@ int main(){
     do{
         do{
             std::cin >> guess;
-        }while( guess.length() != 5 );
+            if(guess =="quit"){
+                std::cout << "Thank you for playing!" << std::endl;
+                return 0;
+            }
+        }while( guess.length() != 5);
+
+
 
         // capitalize guess for easy comparisons
         for(int i=0; i<guess.length(); i++){
