@@ -21,6 +21,6 @@ The game will randomly-select a 5-letter word and you have unlimited guesses to 
 
 
 if you want to quit the game, then just type "quit"
-'''
+```
 quit
-'''
+```
