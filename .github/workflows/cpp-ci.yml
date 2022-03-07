@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install linting dependencies
-        run: apt-get -qq update && apt-get -qq --force-yes install cppcheck
+        run: sudo apt-get -qq update && apt-get -qq --force-yes install cppcheck
       - name: Analyze design
         run: cppcheck . --std=c++17
