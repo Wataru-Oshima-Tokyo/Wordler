@@ -23,6 +23,5 @@ jobs:
           sudo apt-get -qq --assume-yes install cppcheck
       - name: Analyze design
         run: |
-          pwd
           ls
-          cppcheck --std=c++17 *
+          cppcheck .
