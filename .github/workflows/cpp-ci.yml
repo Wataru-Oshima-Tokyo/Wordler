@@ -1,0 +1,23 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile C++ 2017
+        run: make
+  analyze:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install linting dependencies
+        run: apt-get -qq update && apt-get -qq --force-yes install cppcheck
+      - name: Analyze design
+        run: cppcheck . --std=c++17
