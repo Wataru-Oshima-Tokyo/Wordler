@@ -22,4 +22,4 @@ jobs:
           sudo apt-get update 
           sudo apt-get -qq --assume-yes install cppcheck
       - name: Analyze design
-        run: cppcheck --std=c++17 .
+        run: cppcheck --std=c++17 ./
