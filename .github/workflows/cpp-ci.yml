@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Install linting dependencies
         run: |
-          - sudo apt-get update 
-          - sudo apt-get -qq --assume-yes install cppcheck
+          sudo apt-get update 
+          sudo apt-get -qq --assume-yes install cppcheck
       - name: Analyze design
         run: cppcheck . --std=c++17
