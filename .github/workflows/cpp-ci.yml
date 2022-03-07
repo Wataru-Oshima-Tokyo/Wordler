@@ -12,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Compile C++ 2017
-        run: make
+        run: |
+          export SRC_DIR=$PWD
+          make
   analyze:
     needs: build
     runs-on: ubuntu-latest
@@ -24,4 +26,4 @@ jobs:
       - name: Analyze design
         run: |
           ls
-          cppcheck .
+          cppcheck --std=c++17 $SRC_DIR
