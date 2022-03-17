@@ -12,10 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Compile C++ 2017
-        run: make
+        run: |
+        export SRC_DIR=$PWD
+        make
   metrics:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Install and run cccc
+        run: |
+        sudo apt update
+        sudo apt install cccc
+        cccc --lang=c++ $SRC_DIR/*.cpp
       - name: Design metrics
         uses: sarnold/cccc-action@0.3
