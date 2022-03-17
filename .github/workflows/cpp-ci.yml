@@ -17,5 +17,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: software metrics (cccc)
+      - name: software metrics
         uses: sarnold/cccc-action@0.3
