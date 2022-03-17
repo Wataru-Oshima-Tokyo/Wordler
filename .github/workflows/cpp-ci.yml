@@ -23,4 +23,5 @@ jobs:
         run: |
           sudo apt update
           sudo apt install cccc
-          cccc --lang=c++ *.cpp
+          cd $SRC_DIR
+          cccc --lang=c++ dictionary.cpp
