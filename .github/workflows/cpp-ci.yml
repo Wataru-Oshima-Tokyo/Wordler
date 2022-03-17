@@ -23,4 +23,4 @@ jobs:
         run: |
           sudo apt update
           sudo apt install cccc
-          cccc --lang=c++ $SRC_DIR/*.cpp
+          cccc --lang=c++ *.cpp
