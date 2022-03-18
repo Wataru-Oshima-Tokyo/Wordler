@@ -15,5 +15,8 @@ RUN apt-get update && \
             git-all \
             pmccabe 
 
+# Get source
+COPY . ./
+
 # Run static analysis
 CMD pmccabe *.cpp -v
