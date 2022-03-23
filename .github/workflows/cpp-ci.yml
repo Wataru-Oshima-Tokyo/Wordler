@@ -30,4 +30,4 @@ jobs:
         run: |
           sudo apt-get install -y pmccabe
           cd $SRC_DIR
-          pmccabe *.cpp -v
+          ls -a
