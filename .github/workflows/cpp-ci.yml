@@ -7,12 +7,6 @@ on:
     branches: [ main, design ]
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install dependencies
-        run: |
-          sudo apt-get install -y build-essential g++ cmake git
   build:
     needs: install
     runs-on: ubuntu-latest
@@ -21,4 +15,4 @@ jobs:
       - name: Build docker container
         run: |
           docker build -t cpp-analysis .
-          docker run -it cpp-analysis
+          docker run -d cpp-analysis
