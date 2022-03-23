@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          sudo apt-get install -y build-essential g++ cmake git-all pmccabe 
+          sudo apt-get install -y build-essential g++ cmake git pmccabe 
   build:
     needs: install
     runs-on: ubuntu-latest
