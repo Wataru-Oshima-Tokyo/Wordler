@@ -7,7 +7,18 @@ on:
     branches: [ main, design ]
 
 jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        sudo apt-get install -y \ 
+          build-essential \
+          g++ \
+          cmake \
+          git-all \
+          pmccabe 
   build:
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,9 +30,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Install and run cccc
-        run: |
-          sudo apt update
-          sudo apt install cccc
-          cd $SRC_DIR
-          cccc --lang=c++ dictionary.cpp
+      - name: Install and run PMcCabe
+        run: pmccabe *.cpp -v
