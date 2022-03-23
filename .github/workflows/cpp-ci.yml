@@ -18,16 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Compile C++ 2017
+      - name: Build docker container
         run: |
-          export SRC_DIR=$PWD
-          make
-  metrics:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install and run PMcCabe
-        run: |
-          sudo apt-get install -y pmccabe
-          echo $SRC_DIR
-          ls -a
+          docker build -t cpp-analysis .
+          docker run -it cpp-analysis
