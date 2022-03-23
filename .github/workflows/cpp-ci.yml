@@ -28,5 +28,6 @@ jobs:
     steps:
       - name: Install and run PMcCabe
         run: |
-          sudo apt-get install -y pmccabe 
+          sudo apt-get install -y pmccabe
+          cd $SRC_DIR
           pmccabe *.cpp -v
