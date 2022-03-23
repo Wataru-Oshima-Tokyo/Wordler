@@ -29,5 +29,5 @@ jobs:
       - name: Install and run PMcCabe
         run: |
           sudo apt-get install -y pmccabe
-          cd $SRC_DIR
+          echo $SRC_DIR
           ls -a
