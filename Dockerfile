@@ -13,10 +13,12 @@ RUN apt-get update && \
             g++ \
             cmake \
             git-all \
-            pmccabe 
+            pmccabe \
+            cccc
 
 # Get source
 COPY . ./
 
 # Run static analysis
-CMD pmccabe *.cpp -v
+CMD pmccabe *.cpp -v && \
+    cccc --lang=c++ --outdir=report *.cpp
