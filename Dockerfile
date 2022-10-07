@@ -1,14 +1,15 @@
 FROM ubuntu:latest
 LABEL title="C++ Analysis"
-LABEL version=0.1
-ENV CXXFLAGS=-std=c++11
+LABEL version=0.2
+ENV CXXFLAGS=-std=c++17
 ENV WORKDIR=/usr/src
 WORKDIR /usr/src
 
 # Install dependencies
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y \
+    apt-get install -y -f \
+            dos2unix \    
             build-essential \
             g++ \
             cmake \
@@ -16,8 +17,9 @@ RUN apt-get update && \
             pmccabe \
             cccc
 
-# Get source
+# Get source and make sure it uses unix line feed (no carriage return)
 COPY . ./
+RUN dos2unix *
 
 # Run static analysis
 CMD pmccabe *.cpp -v && \
