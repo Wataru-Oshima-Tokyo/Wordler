@@ -6,7 +6,6 @@
 
 class dictionary{
 private:
-    const std::string DEFAULT_DICTIONARY = ".wordler.data";
     std::vector<std::string> words;
     std::string dictionary_file;
 
