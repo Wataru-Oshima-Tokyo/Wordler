@@ -16,10 +16,8 @@ void dictionary::load_dictionary(std::string file){
     std::ifstream read(file);
     std::vector <std::string> temp;
 
-    if( !read.is_open() ){
-        return;
-    }
-    else{
+    if( read.is_open() ){
+        
         std::string word;
         while( getline(read,word) ){
             //convert every word to UPPER CASE
@@ -28,13 +26,14 @@ void dictionary::load_dictionary(std::string file){
             }
            temp.push_back(word);
         }
-    }
+    
 
-    if( temp.size() > 0 ){
-        words = temp;
-        dictionary_file = file;
+        if( temp.size() > 0 ){
+            words = temp;
+            dictionary_file = file;
+        }
+        read.close();
     }
-    read.close();
 }
 
 // returns the name of the file that was most recently used to 
