@@ -33,4 +33,8 @@ To run static analysis in the dev container:
 docker run -it cpp-analysis
 ```
 
-Or to run it with binding to changes to source code (but not the container configuration) use the above command with the added options `--mount type=bind,source="$(pwd)",target=/usr/src` *before* the container name.
+To bind file changes between the host and container:
+
+```
+docker run -v "$(pwd)":/usr/src -it cpp-analysis
+```
