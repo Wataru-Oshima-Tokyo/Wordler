@@ -21,6 +21,9 @@ RUN apt-get update && \
 COPY . ./
 RUN dos2unix *
 
+# Load repo into image
+COPY . ${WORKDIR}
+
 # Run static analysis
 CMD pmccabe *.cpp -v && \
     cccc --lang=c++ --outdir=report *.cpp
