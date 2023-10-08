@@ -11,17 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Compile C++ 2017
+      - name: Build docker container
         run: |
-          export SRC_DIR=$PWD
-          make
-  metrics:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install and run cccc
-        run: |
-          sudo apt update
-          sudo apt install cccc
-          cd $SRC_DIR
-          cccc --lang=c++ dictionary.cpp
+          docker build -t cpp-analysis .
+          docker run -d cpp-analysis
