@@ -15,5 +15,8 @@ RUN apt-get update && \
             git-all \
             pmccabe 
 
+# Load repo into image
+COPY . ${WORKDIR}
+
 # Run static analysis
 CMD pmccabe *.cpp -v
