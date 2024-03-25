@@ -24,17 +24,17 @@ The game will randomly-select a 5-letter word and you have unlimited guesses to 
 To use the project development environment, build the docker image using:
 
 ```
-docker build -t cpp-analysis .
+docker build -t cpp-container .
 ```
 
 To run static analysis in the dev container:
 
 ```
-docker run -it cpp-analysis
+docker run -it cpp-container
 ```
 
 To bind file changes between the host and container:
 
 ```
-docker run -v "$(pwd)":/usr/src -it cpp-analysis
+docker run -v "$(pwd)":/usr/src -it cpp-container
 ```

@@ -6,7 +6,7 @@
 // initiate word dictionary from file .wordler.data and store them as a 
 // list of upper case letters
 dictionary::dictionary(){
-    dictionary_file = ".wordler.data" // default file
+    dictionary_file = ".wordler.data"; // default file
     load_dictionary(dictionary_file);
 }
 
