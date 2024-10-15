@@ -14,4 +14,4 @@ jobs:
       - name: Build docker container
         run: |
           docker build -t cpp-analysis .
-          docker run -d cpp-analysis
+          docker run -it cpp-analysis
